@@ -19,9 +19,9 @@ function App() {
   <ThemeProvider theme={theme}>
     <CssBaseline/>
     <Routes>
-      <Route element={<Layout/>}>
-        <Route path="/" element ={<Navigate to="/dashboard" replace/>} />
-         <Route path="/dashbard" element={<Dashboard/>} />
+    <Route element={<Layout/>}>
+      <Route path="/" element ={<Navigate to="/dashboard" replace/>}/>
+         <Route path="/dashboard" element={<Dashboard/>} /> 
       </Route>
     </Routes>
   </ThemeProvider>
