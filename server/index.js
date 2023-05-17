@@ -11,6 +11,11 @@ import generalRoutes from './routes/general.js';
 import menagmentRoutes from './routes/menagment.js';
 import salesRoutes from './routes/sales.js';
 
+//data imports
+import User from './models/User.js';
+import { dataUser } from "./data/index.js";
+
+
 //CONGIG
 
 dontenv.config();
@@ -36,5 +41,7 @@ mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(()=> {
-    app.listen(PORT, () => console.log(`Server port: ${PORT}` ))
+    app.listen(PORT, () => console.log(`Server port: ${PORT}` ));
+
+    User.insertMany(dataUser);
 }).catch((error)=> console.log(`${error} did not connect` ));
