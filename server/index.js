@@ -12,9 +12,11 @@ import menagmentRoutes from './routes/menagment.js';
 import salesRoutes from './routes/sales.js';
 
 //data imports
+//import User from './models/User.js';
+//import { dataUser } from "./data/index.js";
+// data imports 
 import User from './models/User.js';
-import { dataUser } from "./data/index.js";
-
+import { dataUser } from './data/index.js';
 
 //CONGIG
 
@@ -34,14 +36,16 @@ app.use("/general", generalRoutes);
 app.use("/menagment", menagmentRoutes);
 app.use("/sales", salesRoutes);
 
+
 //mongoose setup
 
 const PORT=process.env.PORT || 9000;
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+
 }).then(()=> {
     app.listen(PORT, () => console.log(`Server port: ${PORT}` ));
 
-    User.insertMany(dataUser);
+    //User.insertMany(dataUser);
 }).catch((error)=> console.log(`${error} did not connect` ));
